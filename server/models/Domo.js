@@ -4,7 +4,7 @@ const _ = require('underscore');
 
 let DomoModel = {};
 
-const covertId = mongoose.Types.ObjectId;
+const convertId = mongoose.Types.ObjectId;
 const setName = (name) => _.escape(name).trim();
 
 const DomoSchema = new mongoose.Schema({
