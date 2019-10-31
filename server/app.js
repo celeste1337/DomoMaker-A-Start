@@ -25,11 +25,11 @@ mongoose.connect(dbURL, (err) => {
 let redisURL = {
   hostname: 'redis-10440.c10.us-east-1-3.ec2.cloud.redislabs.com',
   port: 10440,
-}
+};
 
 let redisPASS = 'qnXtVXTMeFq42kkHKP4UHN5UNLO8BoQ6';
 
-if(process.env.REDISCLOUD_URL) {
+if (process.env.REDISCLOUD_URL) {
   redisURL = url.parse(process.env.REDISCLOUD_URL);
   redisPASS = redisURL.auth.split(':')[1];
 }
@@ -57,18 +57,18 @@ app.use(session({
   cookie: {
     httpOnly: true,
   },
-}))
+}));
 app.engine('handlebars', expressHandlebars({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 app.set('views', `${__dirname}/../views`);
 app.use(cookieParser());
 app.use(csrf());
 app.use((err, req, res, next) => {
-  if(err.code !== 'EBADCSRFTOKEN') return next(err);
+  if (err.code !== 'EBADCSRFTOKEN') return next(err);
 
   console.log('Missing CSRF token');
   return false;
-})
+});
 
 
 router(app);
