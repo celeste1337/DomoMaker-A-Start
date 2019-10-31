@@ -13,7 +13,7 @@ const csrf = require('csurf');
 
 const port = process.env.PORT || process.env.NODE_PORT || 3000;
 
-const dbURL = process.env.MONGODB_URI || 'mongod://localhost/DomoMaker' || 'mongodb://heroku_vwvzxfrh:b8gpdsmjkijup88s0tir5avjsh@ds339968.mlab.com:39968/heroku_vwvzxfrh';
+const dbURL = process.env.MONGODB_URI || 'mongod://localhost/DomoMaker';
 
 mongoose.connect(dbURL, (err) => {
   if (err) {
