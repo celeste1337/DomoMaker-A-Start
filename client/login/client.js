@@ -1,14 +1,14 @@
 const handleLogin = (e) => {
     e.preventDefault();
 
-    $('#domoMessage').animate({width:'hide'}, 350);
+    $('#domoMessage').animate({ width: 'hide' }, 350);
 
-    if($('#user').val() == '' || $('#pass').val() == '') {
+    if ($('#user').val() == '' || $('#pass').val() == '') {
         handleError("username or password is empty >:(");
         return false;
     }
 
-    console.log($('input[name=_csrf').val());
+    console.log($('input[name=_csrf]').val());
 
     sendAjax('POST', $('#loginForm').attr('action'), $('#loginForm').serialize(), redirect);
 
@@ -18,14 +18,14 @@ const handleLogin = (e) => {
 const handleSignup = (e) => {
     e.preventDefault();
 
-    $('#domoMessage').animate({width:'hide'}, 350);
+    $('#domoMessage').animate({ width: 'hide' }, 350);
 
-    if($('#user').val() == '' || $('#pass').val() == '' || $('#pass2').val() == '') {
+    if ($('#user').val() == '' || $('#pass').val() == '' || $('#pass2').val() == '') {
         handleError("all fields required DUM");
         return false;
     }
 
-    if($('#pass').val() !== $('#pass2').val()) {
+    if ($('#pass').val() !== $('#pass2').val()) {
         handleError("passwords dont MATCH!!!!!!!!!!!!");
         return false;
     }
@@ -43,11 +43,11 @@ const LoginWindow = (props) => {
             method="POST"
             className="mainForm">
             <label htmlFor="username">Username: </label>
-            <input id="user" type="text" name="username" placeholder="username"/>
+            <input id="user" type="text" name="username" placeholder="username" />
             <label htmlFor="pass">Password: </label>
-            <input id="pass" type="password" name="pass" placeholder="password"/>
-            <input type="hidden" name="_csrf" value={props.csrf}/>
-            <input className="formSubmit" type="submit" value="Sign in"/>
+            <input id="pass" type="password" name="pass" placeholder="password" />
+            <input type="hidden" name="_csrf" value={props.csrf} />
+            <input className="formSubmit" type="submit" value="Sign in" />
         </form>
     );
 };
@@ -60,14 +60,14 @@ const SignupWindow = (props) => {
             action="/signup"
             method="POST"
             className="mainForm">
-                <label htmlFor="username">Username: </label>
-                <input id="user" type="text" name="username" placeholder="username"/>
-                <label htmlFor="pass">Password: </label>
-                <input id="pass" type="password" name="pass" placeholder="password"/>
-                <label htmlFor="pass2">Password: </label>
-                <input id="pass2" type="password" name="pass2" placeholder="retype password"/>
-                <input type="hidden" name="_csrf" value={props.csrf} />
-                <input className="formSubmit" type="submit" value="sign up"/>
+            <label htmlFor="username">Username: </label>
+            <input id="user" type="text" name="username" placeholder="username" />
+            <label htmlFor="pass">Password: </label>
+            <input id="pass" type="password" name="pass" placeholder="password" />
+            <label htmlFor="pass2">Password: </label>
+            <input id="pass2" type="password" name="pass2" placeholder="retype password" />
+            <input type="hidden" name="_csrf" value={props.csrf} />
+            <input className="formSubmit" type="submit" value="sign up" />
         </form>
     );
 };
@@ -111,6 +111,6 @@ const getToken = () => {
     });
 };
 
-$(document).ready(function() {
+$(document).ready(function () {
     getToken();
 });
