@@ -6,6 +6,7 @@ let DomoModel = {};
 
 const convertId = mongoose.Types.ObjectId;
 const setName = (name) => _.escape(name).trim();
+const setDate = (date) => date.toLocaleDateString("en-US");
 
 const DomoSchema = new mongoose.Schema({
   name: {
@@ -32,6 +33,7 @@ const DomoSchema = new mongoose.Schema({
   createdData: {
     type: Date,
     default: Date.now,
+    set: setDate
   },
 });
 
