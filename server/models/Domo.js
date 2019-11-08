@@ -6,7 +6,7 @@ let DomoModel = {};
 
 const convertId = mongoose.Types.ObjectId;
 const setName = (name) => _.escape(name).trim();
-const setDate = (date) => date.toLocaleDateString("en-US");
+const setDate = (date) => date.slice(date.indexOf("T"));
 
 const DomoSchema = new mongoose.Schema({
   name: {
