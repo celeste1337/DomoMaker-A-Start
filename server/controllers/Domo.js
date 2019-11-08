@@ -22,6 +22,7 @@ const makeDomo = (req, res) => {
     age: req.body.age,
     breed: req.body.breed,
     owner: req.session.account._id,
+    createdData: req.session.createdData
   };
 
   const newDomo = new Domo.DomoModel(domoData);
