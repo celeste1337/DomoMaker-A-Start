@@ -45,7 +45,7 @@ DomoSchema.statics.findByOwner = (ownerId, callback) => {
   const search = {
     owner: convertId(ownerId),
   };
-  return DomoModel.find(search).select('name age breed').exec(callback);
+  return DomoModel.find(search).select('name age breed createdData').exec(callback);
 };
 
 DomoModel = mongoose.model('Domo', DomoSchema);
