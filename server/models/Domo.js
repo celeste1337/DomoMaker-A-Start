@@ -32,7 +32,7 @@ const DomoSchema = new mongoose.Schema({
   },
   createdData: {
     type: Date,
-    default: Date.now,
+    default: Date.now.toLocaleDateString("en-US"),
     set: setDate
   },
 });
