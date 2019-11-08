@@ -3,7 +3,7 @@ const handleDomo = (e) => {
 
     $('#domoMessage').animate({ width: 'hide' }, 350);
 
-    if ($('#domoName').val() == '' || $('#domoAge').val() == '') {
+    if ($('#domoName').val() == '' || $('#domoAge').val() == '' || $('#domoBreed').val() == '') {
         handleError('all fields required');
         return false;
     }
